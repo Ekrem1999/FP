@@ -22,4 +22,9 @@ encode (x:xs) = (length $ x : takeWhile (==x) xs, x)
 gpoup [x] = [(x,x)]
 group (x1:x2:xs) = (x1,x2) : (group xs)
 
+main = do
+    putStrLn "Test #1"
+    let someList = [1,2,3,4,5]
+    _test someList (_last someList)
+
 main = print (group [5,4,3,2,1,2,3] )
