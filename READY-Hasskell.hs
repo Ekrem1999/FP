@@ -14,14 +14,12 @@ encode [] = []
 encode (x:xs) = (length $ x : takeWhile (==x) xs, x)
                  : encode (dropWhile (==x) xs)
                  
-                 
-                 
-          
+                                            
 -- №12
 -- Определите функцию, разбивающую список (a b с d...) на пары ((а b) (с d)...).
-group [] = [] 
-group [x] = [(x,x)] 
-group (x1:x2:xs) = (x1,x2) : (group xs)
+split [] = [] 
+split [x] = [(x,x)] 
+split (x1:x2:xs) = (x1,x2) : (split xs)
 
 main = do
     putStrLn "Test №1"
@@ -34,5 +32,5 @@ main = do
        print (encode ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a'])
        
        putStrLn "Test №12"
-       print (group ["a","b","c","d","e","f","g"] ) 
-       print (group [1,2,3,4,5] )
+       print (split ["a","b","c","d","e","f","g"] ) 
+       print (split [1,2,3,4,5] )
