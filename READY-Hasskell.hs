@@ -16,15 +16,22 @@ encode (x:xs) = (length $ x : takeWhile (==x) xs, x)
                  
                  
                  
- --12. Определите функцию, разбивающую список (a b с d...) на пары ((а b) (сd)...).             
- --            
- group [] = []
+--12. Определите функцию, разбивающую список (a b с d...) на пары ((а b) (сd)...).             
+--            
+group [] = []
 gpoup [x] = [(x,x)]
 group (x1:x2:xs) = (x1,x2) : (group xs)
 
 main = do
-    putStrLn "Test #1"
-    let someList = [1,2,3,4,5]
-    _test someList (_last someList)
-
-main = print (group [5,4,3,2,1,2,3] )
+    putStrLn "Test №1"
+       print (myLast [1,2,3,4,5])
+       
+       
+       putStrLn "Тest №5"
+       print (encode ['a', 'a', 'a', 'b', 'b'])
+       print (encode ['a', 'a', 'b', 'b', 'b', 'c', 'c'])
+       print (encode ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a'])
+       
+       putStrLn "Test №12"
+       print (group ["a","b","c","d","e","f","g"] ) 
+       print (group [1,2,3,4,5] )
